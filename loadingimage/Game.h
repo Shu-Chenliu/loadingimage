@@ -14,9 +14,10 @@ public:
 	bool runnung() {
 		return isrunning;
 	}
+	static SDL_Renderer* renderer;
 private:
 	int cnt = 0;
 	bool isrunning;
 	SDL_Window* window;
-	SDL_Renderer* renderer;
+	//SDL_Renderer* renderer;
 };

@@ -6,7 +6,7 @@ int main(int argc, char* argv[]) {
 	Uint32 frameStart;
 	int frameTime;
 	game = new Game();
-	game->init("2dengine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
+	game->init("2dengine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 640, false);
 	while (game->runnung()) {
 		frameStart = SDL_GetTicks();//回傳程式執行時間
 		game->handleevents();

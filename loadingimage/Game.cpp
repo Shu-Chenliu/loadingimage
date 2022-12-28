@@ -2,11 +2,15 @@
 #include<iostream>
 #include"TextureManager.h"//2
 #include"GameObject.h"//3
+#include"Map.h"//4
 using namespace std;
 //SDL_Texture* playertex;
 //SDL_Rect srcR, destR;
 GameObject* player;
 GameObject* enemy;
+Map* map;
+
+SDL_Renderer* Game::renderer = nullptr;
 Game::Game() {
 
 }
@@ -35,8 +39,9 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		//SDL_FreeSurface(surface);
 		// 
 		//playertex = TextureManager::LoadTexture("assets/player.png", renderer);
-		player = new GameObject("assets/player.png", renderer,0,0);
-		enemy = new GameObject("assets/enemy.png", renderer, 50, 50);
+		player = new GameObject("assets/player.png",0,0);
+		enemy = new GameObject("assets/enemy.png", 50, 50);
+		map = new Map();
 	}
 	else {
 		isrunning = false;
@@ -64,6 +69,7 @@ void Game::update() {
 }
 void Game::render() {
 	SDL_RenderClear(renderer);
+	map->DrawMap();
 	//SDL_RenderCopy(renderer, playertex, NULL, &destR);
 	player->Render();
 	enemy->Render();
